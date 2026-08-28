@@ -4,39 +4,37 @@ import { realPhoto } from "../../lib/images";
 
 export default function HeroBanner() {
   return (
-    <section className="relative overflow-hidden bg-blush">
-      <div className="container-page grid grid-cols-1 items-center gap-8 py-10 sm:py-14 lg:grid-cols-2 lg:gap-12 lg:py-0">
-        <div className="order-2 flex flex-col items-start gap-5 lg:order-1">
-          <span className="rounded-full bg-white/70 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-terracotta">
+    <section className="relative flex h-[86vh] max-h-[880px] min-h-[560px] items-end overflow-hidden bg-ink">
+      <img
+        src={realPhoto("1784439199357-8da7b7a2afbf", 1800)}
+        alt="Children wearing Pip & Panda's new season collection"
+        className="absolute inset-0 h-full w-full object-cover"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/25 to-ink/10" />
+      <div className="container-page relative pb-14 pt-24 sm:pb-20">
+        <div className="max-w-xl">
+          <span className="inline-block border-b border-terracotta/70 pb-1 text-xs font-semibold uppercase tracking-[0.3em] text-butter">
             Autumn–Winter Edit
           </span>
-          <h1 className="max-w-lg font-serif text-4xl leading-[1.1] text-ink sm:text-5xl lg:text-6xl">
-            Dressed for wonder, built for play
+          <h1 className="mt-5 font-serif text-5xl leading-[1.05] text-ivory sm:text-6xl lg:text-7xl">
+            Dressed for <em className="italic text-butter">wonder</em>, built for play
           </h1>
-          <p className="max-w-md text-base leading-relaxed text-ink-soft">
+          <p className="mt-5 max-w-md text-base leading-relaxed text-ivory/80">
             Thoughtfully crafted clothing for newborns to fourteen-year-olds — soft on skin,
             strong on style, and made for every little adventure in between.
           </p>
-          <div className="mt-2 flex flex-wrap items-center gap-4">
+          <div className="mt-8 flex flex-wrap items-center gap-6">
             <Link to="/new-arrivals">
-              <Button variant="primary" size="lg">
+              <Button variant="primary" size="lg" className="!bg-ivory !text-ink hover:!bg-butter">
                 Shop Now
               </Button>
             </Link>
-            <Link to="/shop-by-age">
-              <Button variant="outline" size="lg" className="!border-ink/30">
-                Shop by Age
-              </Button>
+            <Link
+              to="/shop-by-age"
+              className="border-b border-ivory/50 pb-1 text-sm font-semibold uppercase tracking-wide text-ivory transition-colors hover:border-ivory hover:text-butter"
+            >
+              Shop by Age
             </Link>
-          </div>
-        </div>
-        <div className="order-1 lg:order-2">
-          <div className="relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-2xl lg:aspect-[3/4] lg:max-w-none lg:rounded-none">
-            <img
-              src={realPhoto("1784439199357-8da7b7a2afbf", 1400)}
-              alt="Children wearing Pip & Panda's new season collection"
-              className="h-full w-full object-cover"
-            />
           </div>
         </div>
       </div>

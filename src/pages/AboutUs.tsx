@@ -13,9 +13,10 @@ const icons: Record<string, React.ReactNode> = {
 export default function AboutUs() {
   return (
     <div>
-      <div className="relative flex h-56 items-center justify-center overflow-hidden bg-blush sm:h-72">
-        <img src={brandStory.image} alt="Pip & Panda studio" className="absolute inset-0 h-full w-full object-cover opacity-30" />
-        <h1 className="relative font-serif text-4xl text-ink sm:text-5xl">About Pip & Panda</h1>
+      <div className="relative flex h-56 items-center justify-center overflow-hidden bg-ink sm:h-72">
+        <img src={brandStory.image} alt="Pip & Panda studio" className="absolute inset-0 h-full w-full object-cover" />
+        <div className="absolute inset-0 bg-ink/55" />
+        <h1 className="relative font-serif text-4xl text-ivory sm:text-5xl">About Pip & Panda</h1>
       </div>
 
       <div className="container-page py-4">

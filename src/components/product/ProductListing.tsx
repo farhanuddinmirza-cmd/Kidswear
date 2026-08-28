@@ -33,13 +33,12 @@ export default function ProductListing({ title, description, bannerImage, breadc
 
   return (
     <div>
-      <div className="relative flex h-40 items-center justify-center overflow-hidden bg-blush sm:h-56">
-        {bannerImage && (
-          <img src={bannerImage} alt={title} className="absolute inset-0 h-full w-full object-cover opacity-40" />
-        )}
+      <div className="relative flex h-56 items-center justify-center overflow-hidden bg-ink sm:h-72">
+        {bannerImage && <img src={bannerImage} alt={title} className="absolute inset-0 h-full w-full object-cover" />}
+        <div className="absolute inset-0 bg-ink/55" />
         <div className="relative text-center">
-          <h1 className="font-serif text-3xl text-ink sm:text-4xl">{title}</h1>
-          {description && <p className="mt-2 max-w-md text-sm text-ink-soft">{description}</p>}
+          <h1 className="font-serif text-4xl text-ivory sm:text-5xl">{title}</h1>
+          {description && <p className="mt-2 max-w-md text-sm text-ivory/80">{description}</p>}
         </div>
       </div>
 
