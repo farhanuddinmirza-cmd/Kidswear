@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { useNavigate } from "react-router-dom";
 import { Search, X } from "lucide-react";
 import { products } from "../../data/products";
@@ -28,7 +29,7 @@ export default function SearchOverlay({ onClose }: { onClose: () => void }) {
     onClose();
   };
 
-  return (
+  return createPortal(
     <div className="fixed inset-0 z-50">
       <div className="absolute inset-0 bg-ink/40 animate-fade-in" onClick={onClose} />
       <div className="relative mx-auto mt-0 max-w-2xl bg-ivory p-5 shadow-card animate-fade-in sm:mt-24 sm:rounded-2xl sm:p-6">
@@ -92,6 +93,7 @@ export default function SearchOverlay({ onClose }: { onClose: () => void }) {
           </div>
         )}
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }

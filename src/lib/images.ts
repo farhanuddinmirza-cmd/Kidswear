@@ -7,13 +7,13 @@
  */
 
 const GRADIENT_PAIRS: [string, string][] = [
-  ["#F3D9D6", "#FAF7F2"], // blush -> ivory
-  ["#D7E4D3", "#FAF7F2"], // sage -> ivory
-  ["#D6E6ED", "#FAF7F2"], // sky -> ivory
-  ["#F6E8C8", "#FAF7F2"], // butter -> ivory
-  ["#F3D9D6", "#F6E8C8"], // blush -> butter
-  ["#D7E4D3", "#D6E6ED"], // sage -> sky
-  ["#F1EBE1", "#F3D9D6"], // ivory-dark -> blush
+  ["#EFD6D1", "#F8F4EC"], // blush -> ivory
+  ["#D2E0CB", "#F8F4EC"], // sage -> ivory
+  ["#D1E0E7", "#F8F4EC"], // sky -> ivory
+  ["#F1E2BF", "#F8F4EC"], // butter -> ivory
+  ["#EFD6D1", "#F1E2BF"], // blush -> butter
+  ["#D2E0CB", "#D1E0E7"], // sage -> sky
+  ["#EFE6D3", "#EFD6D1"], // ivory-dark -> blush
 ];
 
 // Line-art motifs drawn on a 0-100 grid, one or more path/shape elements each.
@@ -154,7 +154,7 @@ export function placeholderImage(width: number, height: number, tags: string, se
       </linearGradient>
     </defs>
     <rect width="100" height="${vbHeight}" fill="url(#${gradientId})" />
-    <g fill="none" stroke="#2B2620" stroke-opacity="0.3" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round">
+    <g fill="none" stroke="#1E1A15" stroke-opacity="0.3" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round">
       ${artwork}
     </g>
   </svg>`;

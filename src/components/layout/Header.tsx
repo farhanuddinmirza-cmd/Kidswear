@@ -4,6 +4,7 @@ import { Menu, Search, User, Heart, ShoppingBag } from "lucide-react";
 import IconButton from "../ui/IconButton";
 import MobileMenu from "./MobileMenu";
 import SearchOverlay from "./SearchOverlay";
+import NavMenu from "./NavMenu";
 import { useCart } from "../../context/CartContext";
 import { useWishlist } from "../../context/WishlistContext";
 
@@ -16,15 +17,18 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-ivory/95 backdrop-blur-sm">
       <div className="container-page flex h-16 items-center justify-between gap-4 sm:h-20">
-        <div className="flex items-center gap-1 lg:hidden">
-          <IconButton icon={<Menu size={20} />} label="Open menu" onClick={() => setMenuOpen(true)} />
+        <div className="flex shrink-0 items-center gap-4">
+          <IconButton icon={<Menu size={20} />} label="Open menu" onClick={() => setMenuOpen(true)} className="lg:hidden" />
+          <Link to="/" className="flex items-center whitespace-nowrap">
+            <span className="font-serif text-lg tracking-tight text-ink sm:text-2xl lg:text-3xl">Pip & Panda</span>
+          </Link>
         </div>
 
-        <Link to="/" className="flex items-center whitespace-nowrap">
-          <span className="font-serif text-lg tracking-tight text-ink sm:text-2xl lg:text-3xl">Pip & Panda</span>
-        </Link>
+        <div className="no-scrollbar flex min-w-0 flex-1 justify-center overflow-x-auto">
+          <NavMenu />
+        </div>
 
-        <div className="flex items-center gap-0.5 sm:gap-1">
+        <div className="flex shrink-0 items-center gap-0.5 sm:gap-1">
           <IconButton icon={<Search size={19} />} label="Search" onClick={() => setSearchOpen(true)} />
           <Link to="/account">
             <IconButton icon={<User size={19} />} label="Account" />

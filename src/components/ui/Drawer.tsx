@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { createPortal } from "react-dom";
 import { X } from "lucide-react";
 import { cn } from "../../lib/utils";
 
@@ -21,7 +22,7 @@ export default function Drawer({ open, onClose, title, side = "right", children,
       ? cn("left-0 top-0 h-full w-full", widthClass)
       : "bottom-0 left-0 right-0 max-h-[85vh] rounded-t-2xl";
 
-  return (
+  return createPortal(
     <div className="fixed inset-0 z-50">
       <div className="absolute inset-0 bg-ink/40 animate-fade-in" onClick={onClose} />
       <div className={cn("absolute flex flex-col bg-ivory shadow-card", positionClasses)}>
@@ -35,6 +36,7 @@ export default function Drawer({ open, onClose, title, side = "right", children,
         )}
         <div className="flex-1 overflow-y-auto">{children}</div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }

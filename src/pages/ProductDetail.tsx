@@ -12,6 +12,7 @@ import Accordion, { AccordionItem } from "../components/ui/Accordion";
 import PincodeCheck from "../components/product/PincodeCheck";
 import SizeGuideModal from "../components/product/SizeGuideModal";
 import ProductCarousel from "../components/product/ProductCarousel";
+import ReviewCarousel from "../components/product/ReviewCarousel";
 import QuickViewModal from "../components/product/QuickViewModal";
 import SectionHeading from "../components/ui/SectionHeading";
 import { useCart } from "../context/CartContext";
@@ -180,21 +181,7 @@ function ProductDetailContent({ product }: { product: Product }) {
 
       <section className="mt-16 border-t border-line pt-12">
         <SectionHeading eyebrow="Reviews" title="What Parents Say" />
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-          {product.reviews.map((r) => (
-            <div key={r.id} className="rounded-xl border border-line p-5">
-              <div className="flex items-center justify-between">
-                <Rating value={r.rating} size={13} />
-                <span className="text-xs text-ink-soft">{new Date(r.date).toLocaleDateString("en-IN", { month: "short", year: "numeric" })}</span>
-              </div>
-              <h3 className="mt-2 text-sm font-semibold text-ink">{r.title}</h3>
-              <p className="mt-1 text-sm leading-relaxed text-ink-soft">{r.body}</p>
-              <p className="mt-3 text-xs font-medium text-ink-soft">
-                {r.author} {r.verified && <span className="text-sage-dark">· Verified Purchase</span>} · {r.childAge}
-              </p>
-            </div>
-          ))}
-        </div>
+        <ReviewCarousel reviews={product.reviews} />
       </section>
 
       {completeLook.length > 0 && (
