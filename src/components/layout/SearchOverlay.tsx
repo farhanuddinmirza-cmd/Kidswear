@@ -32,7 +32,7 @@ export default function SearchOverlay({ onClose }: { onClose: () => void }) {
   return createPortal(
     <div className="fixed inset-0 z-50">
       <div className="absolute inset-0 bg-ink/40 animate-fade-in" onClick={onClose} />
-      <div className="relative mx-auto mt-0 max-w-2xl bg-ivory p-5 shadow-card animate-fade-in sm:mt-24 sm:rounded-2xl sm:p-6">
+      <div className="relative mx-3 mt-3 max-h-[80vh] overflow-y-auto rounded-2xl bg-ivory p-5 shadow-card animate-fade-in sm:mx-auto sm:mt-24 sm:max-w-2xl sm:p-6">
         <div className="flex items-center gap-3 border-b border-line pb-3">
           <Search size={18} className="text-ink-soft" />
           <input

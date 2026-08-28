@@ -1,6 +1,7 @@
 import { Leaf, ShieldCheck, Wind, Recycle } from "lucide-react";
 import { sustainabilityHighlights } from "../../data/content";
 import SectionHeading from "../ui/SectionHeading";
+import HorizontalScroller from "../ui/HorizontalScroller";
 
 const icons: Record<string, React.ReactNode> = {
   leaf: <Leaf size={22} />,
@@ -19,9 +20,12 @@ export default function SustainabilityHighlights() {
           title="Gentle on Skin, Kind to the Planet"
           description="Every fabric choice starts with one question: is it safe enough for a child?"
         />
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <HorizontalScroller>
           {sustainabilityHighlights.map((item) => (
-            <div key={item.id} className="flex flex-col items-center gap-3 rounded-2xl bg-white/70 p-6 text-center">
+            <div
+              key={item.id}
+              className="flex w-[70%] flex-none flex-col items-center gap-3 rounded-2xl bg-white/70 p-6 text-center sm:w-[42%] lg:w-1/4"
+            >
               <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white text-terracotta">
                 {icons[item.icon]}
               </div>
@@ -29,7 +33,7 @@ export default function SustainabilityHighlights() {
               <p className="text-xs leading-relaxed text-ink-soft">{item.description}</p>
             </div>
           ))}
-        </div>
+        </HorizontalScroller>
       </div>
     </section>
   );
