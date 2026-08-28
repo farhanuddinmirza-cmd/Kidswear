@@ -20,11 +20,8 @@ export default function Header() {
           <IconButton icon={<Menu size={20} />} label="Open menu" onClick={() => setMenuOpen(true)} />
         </div>
 
-        <Link to="/" className="flex flex-col items-center leading-none whitespace-nowrap lg:items-start">
+        <Link to="/" className="flex items-center whitespace-nowrap">
           <span className="font-serif text-lg tracking-tight text-ink sm:text-2xl lg:text-3xl">Pip & Panda</span>
-          <span className="hidden text-[10px] uppercase tracking-[0.25em] text-ink-soft lg:block">
-            Kidswear, Newborn to 14
-          </span>
         </Link>
 
         <div className="flex items-center gap-0.5 sm:gap-1">

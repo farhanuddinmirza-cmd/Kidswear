@@ -115,21 +115,24 @@ function ProductDetailContent({ product }: { product: Product }) {
             <p className="mt-2 text-xs text-ink-soft">Suitable for: {product.ageGroups.join(", ")}</p>
           </div>
 
-          <div className="flex items-center gap-3">
-            <Button variant="primary" size="lg" fullWidth disabled={!product.inStock} onClick={handleAddToBag}>
+          <div className="flex items-stretch gap-3">
+            <Button variant="primary" size="lg" className="flex-1" disabled={!product.inStock} onClick={handleAddToBag}>
               {product.inStock ? "Add to Bag" : "Out of Stock"}
             </Button>
             <button
               onClick={() => toggleWishlist(product)}
               aria-label="Toggle wishlist"
-              className="flex h-[52px] w-[52px] shrink-0 items-center justify-center rounded-full border border-line"
+              className="flex aspect-square shrink-0 items-center justify-center rounded-full border border-line"
             >
               <Heart size={20} className={isWishlisted(product.id) ? "fill-terracotta text-terracotta" : "text-ink"} />
             </button>
           </div>
-          <Button variant="outline" size="lg" fullWidth disabled={!product.inStock} onClick={handleBuyNow}>
-            Buy Now
-          </Button>
+          <div className="flex items-stretch gap-3">
+            <Button variant="outline" size="lg" className="flex-1" disabled={!product.inStock} onClick={handleBuyNow}>
+              Buy Now
+            </Button>
+            <div aria-hidden className="aspect-square shrink-0 invisible" />
+          </div>
 
           <div className="rounded-xl border border-line p-4">
             <PincodeCheck />
