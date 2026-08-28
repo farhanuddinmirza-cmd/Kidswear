@@ -47,7 +47,7 @@ export const reviewBank: ReviewSeed[] = [
   {
     author: "Divya N.",
     title: "Beautiful packaging and product",
-    body: "Ordered this as a gift and the unboxing experience alone was worth it. The outfit itself is even better — soft and well finished.",
+    body: "Ordered this as a gift and the unboxing experience alone was worth it. The outfit itself is even better, soft and well finished.",
     childAge: "Parent of a 3-year-old",
   },
   {

@@ -31,7 +31,7 @@ export default function AboutUs() {
           <p className="mt-4 text-sm leading-relaxed text-ink-soft">
             Every collection is designed by our in-house studio in Mumbai and tested with real families before it
             reaches our shelves. We believe children shouldn't have to choose between clothes that look good and
-            clothes that feel good — so we build both into every stitch.
+            clothes that feel good, so we build both into every stitch.
           </p>
           <div className="mt-6 grid grid-cols-3 gap-4 border-y border-line py-5">
             {brandStory.stats.map((s) => (

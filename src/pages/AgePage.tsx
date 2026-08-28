@@ -26,7 +26,7 @@ export function ShopByAgeIndex() {
   return (
     <div className="container-page py-14">
       <h1 className="font-serif text-3xl text-ink sm:text-4xl">Shop by Age</h1>
-      <p className="mt-2 max-w-md text-sm text-ink-soft">From first onesies to first day of school — find their perfect fit.</p>
+      <p className="mt-2 max-w-md text-sm text-ink-soft">From first onesies to first day of school, find their perfect fit.</p>
       <div className="mt-8 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-6">
         {ageGroups.map((age) => (
           <Link key={age.slug} to={`/shop-by-age/${age.slug}`} className="group flex flex-col items-center gap-3 text-center">

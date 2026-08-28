@@ -4,7 +4,7 @@ import { realPhoto } from "../../lib/images";
 
 export default function HeroBanner() {
   return (
-    <section className="relative flex h-[86vh] max-h-[880px] min-h-[560px] items-end overflow-hidden bg-ink">
+    <section className="relative flex h-[92svh] max-h-[880px] min-h-[520px] items-end overflow-hidden bg-ink sm:min-h-[600px]">
       <img
         src={realPhoto("1784439199357-8da7b7a2afbf", 1800)}
         alt="Children wearing Pip & Panda's new season collection"
@@ -16,11 +16,11 @@ export default function HeroBanner() {
           <span className="inline-block border-b border-terracotta/70 pb-1 text-xs font-semibold uppercase tracking-[0.3em] text-butter">
             Autumn–Winter Edit
           </span>
-          <h1 className="mt-5 font-serif text-5xl leading-[1.05] text-ivory sm:text-6xl lg:text-7xl">
+          <h1 className="mt-5 font-serif text-4xl leading-[1.1] text-ivory sm:text-5xl lg:text-6xl xl:text-7xl">
             Dressed for <em className="italic text-butter">wonder</em>, built for play
           </h1>
           <p className="mt-5 max-w-md text-base leading-relaxed text-ivory/80">
-            Thoughtfully crafted clothing for newborns to fourteen-year-olds — soft on skin,
+            Thoughtfully crafted clothing for newborns to fourteen-year-olds, soft on skin,
             strong on style, and made for every little adventure in between.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-6">

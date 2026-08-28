@@ -5,7 +5,7 @@ import SectionHeading from "../ui/SectionHeading";
 export default function ShopByAge() {
   return (
     <section className="container-page py-14 sm:py-20">
-      <SectionHeading eyebrow="Growing Up" title="Shop by Age" description="From first onesies to first day of school — find their perfect fit." />
+      <SectionHeading eyebrow="Growing Up" title="Shop by Age" description="From first onesies to first day of school, find their perfect fit." />
       <div className="no-scrollbar -mx-1 flex gap-4 overflow-x-auto px-1 sm:grid sm:grid-cols-3 sm:overflow-visible lg:grid-cols-6">
         {ageGroups.map((age) => (
           <Link

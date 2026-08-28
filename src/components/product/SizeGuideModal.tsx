@@ -30,7 +30,7 @@ export default function SizeGuideModal({ open, onClose }: { open: boolean; onClo
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
           <h2 className="font-serif text-2xl text-ink">Size Guide</h2>
-          <p className="mt-1 text-sm text-ink-soft">Measurements are approximate — we recommend sizing up for growing children.</p>
+          <p className="mt-1 text-sm text-ink-soft">Measurements are approximate. We recommend sizing up for growing children.</p>
         </div>
         <div className="flex shrink-0 rounded-full border border-line p-0.5">
           {(["cm", "in"] as const).map((u) => (

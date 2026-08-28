@@ -58,7 +58,7 @@ export const brandStory = {
   eyebrow: "Our Story",
   title: "Made for Little Adventures",
   body:
-    "Pip & Panda began with a simple idea: dressing children shouldn't mean choosing between comfort and craftsmanship. Every piece is designed in-studio and tested for the way real children move — climbing, twirling, napping, and everything in between — using fabrics soft enough for sensitive skin and sturdy enough for daily play.",
+    "Pip & Panda began with a simple idea: dressing children shouldn't mean choosing between comfort and craftsmanship. Every piece is designed in-studio and tested for the way real children move: climbing, twirling, napping, and everything in between, using fabrics soft enough for sensitive skin and sturdy enough for daily play.",
   image: realPhoto("1776660913956-213dc8e7e1af"),
   stats: [
     { label: "Fabrics Lab-Tested", value: "100%" },

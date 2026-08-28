@@ -20,7 +20,7 @@ export default function ContactUs() {
     <div className="container-page py-8">
       <Breadcrumb items={[{ label: "Contact Us" }]} />
       <h1 className="mt-3 font-serif text-3xl text-ink sm:text-4xl">Contact Us</h1>
-      <p className="mt-2 max-w-md text-sm text-ink-soft">We'd love to hear from you — questions, feedback, or just to say hi.</p>
+      <p className="mt-2 max-w-md text-sm text-ink-soft">We'd love to hear from you: questions, feedback, or just to say hi.</p>
 
       <div className="mt-10 grid grid-cols-1 gap-12 lg:grid-cols-2">
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">

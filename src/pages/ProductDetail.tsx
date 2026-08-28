@@ -94,7 +94,7 @@ function ProductDetailContent({ product }: { product: Product }) {
           <div>
             <div className="mb-2 flex items-center justify-between">
               <p className="text-xs font-semibold uppercase tracking-wide text-ink">
-                Age / Size {size && <span className="font-normal text-ink-soft">— {size}</span>}
+                Age / Size {size && <span className="font-normal text-ink-soft">· {size}</span>}
               </p>
               <button onClick={() => setSizeGuideOpen(true)} className="text-xs font-medium text-terracotta underline underline-offset-2">
                 Size Guide

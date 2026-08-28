@@ -1,7 +1,7 @@
 /**
  * Prototype-only placeholder imagery. Generates a small on-brand SVG data URI
  * (soft gradient + themed motif) instead of pulling random third-party
- * photography — keeps every placeholder visually consistent with the design
+ * photography, keeping every placeholder visually consistent with the design
  * system, contextually relevant to what it's illustrating, and avoids using
  * real strangers'/children's photos as fake product or lifestyle shots.
  */
@@ -164,7 +164,7 @@ export function placeholderImage(width: number, height: number, tags: string, se
 
 /**
  * Real, curated photography for homepage/marketing banners only (hero, promo
- * banners, category/age/occasion cards, brand story) — product cards and
+ * banners, category/age/occasion cards, brand story); product cards and
  * galleries stay on the generated SVG placeholders above. Each ID is a
  * hand-picked, license-free Unsplash photo chosen to match its section; the
  * actual crop/aspect is handled by CSS object-cover at each call site.

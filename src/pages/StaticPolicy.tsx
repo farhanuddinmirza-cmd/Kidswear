@@ -40,7 +40,7 @@ export function Terms() {
       paragraphs={[
         "By using the Pip & Panda website, you agree to these terms. All product information, pricing, and availability are subject to change without notice.",
         "Prices listed are in Indian Rupees (INR) and inclusive of applicable taxes unless stated otherwise.",
-        "All content on this site — including images, text, and branding — belongs to Pip & Panda and may not be reproduced without permission.",
+        "All content on this site, including images, text, and branding, belongs to Pip & Panda and may not be reproduced without permission.",
         "This is a prototype storefront built for demonstration purposes only and does not process real transactions.",
       ]}
     />

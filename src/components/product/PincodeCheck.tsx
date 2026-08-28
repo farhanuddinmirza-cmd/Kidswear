@@ -36,7 +36,7 @@ export default function PincodeCheck() {
       </div>
       {result === "available" && (
         <p className="mt-2 flex items-center gap-1.5 text-xs text-sage-dark">
-          <CheckCircle2 size={14} /> Delivery available — usually arrives in 3–5 days.
+          <CheckCircle2 size={14} /> Delivery available, usually arrives in 3-5 days.
         </p>
       )}
       {result === "unavailable" && (
