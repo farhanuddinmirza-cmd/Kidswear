@@ -53,7 +53,7 @@ export default function ProductCard({ product, onQuickView }: ProductCardProps) 
           <button
             onClick={() => onQuickView(product)}
             className={cn(
-              "absolute inset-x-3 bottom-3 flex items-center justify-center gap-2 rounded-full bg-ink/90 py-2.5 text-xs font-medium text-ivory opacity-0 backdrop-blur-sm transition-opacity duration-200 group-hover:opacity-100",
+              "absolute inset-x-3 bottom-3 hidden items-center justify-center gap-2 rounded-full bg-ink/90 py-2.5 text-xs font-medium text-ivory opacity-0 backdrop-blur-sm transition-opacity duration-200 group-hover:opacity-100",
               "sm:flex"
             )}
           >

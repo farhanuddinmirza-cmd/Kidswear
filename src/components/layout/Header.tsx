@@ -17,10 +17,10 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-ivory/95 backdrop-blur-sm">
       <div className="container-page flex h-16 items-center justify-between gap-4 sm:h-20">
-        <div className="flex shrink-0 items-center gap-4">
+        <div className="flex shrink-0 items-center gap-2 sm:gap-4">
           <IconButton icon={<Menu size={20} />} label="Open menu" onClick={() => setMenuOpen(true)} className="lg:hidden" />
           <Link to="/" className="flex items-center whitespace-nowrap">
-            <span className="font-serif text-lg tracking-tight text-ink sm:text-2xl lg:text-3xl">Pip & Panda</span>
+            <span className="font-serif text-base tracking-tight text-ink sm:text-2xl lg:text-3xl">Pip & Panda</span>
           </Link>
         </div>
 

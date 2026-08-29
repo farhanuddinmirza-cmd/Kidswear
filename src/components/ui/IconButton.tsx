@@ -13,7 +13,7 @@ export default function IconButton({ icon, label, active, className, ...props }:
       aria-label={label}
       title={label}
       className={cn(
-        "flex h-9 w-9 items-center justify-center rounded-full text-ink transition-colors hover:bg-ivory-dark",
+        "flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-ink transition-colors hover:bg-ivory-dark sm:h-9 sm:w-9",
         active && "text-terracotta",
         className
       )}

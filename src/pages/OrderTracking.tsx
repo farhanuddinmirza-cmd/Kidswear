@@ -22,14 +22,14 @@ export default function OrderTracking() {
       <Breadcrumb items={[{ label: "Track Order" }]} />
       <h1 className="mt-3 font-serif text-3xl text-ink sm:text-4xl">Track Your Order</h1>
 
-      <div className="mt-6 flex max-w-md gap-3">
+      <div className="mt-6 flex max-w-md flex-col gap-3 sm:flex-row">
         <Input
           value={searchId}
           onChange={(e) => setSearchId(e.target.value)}
-          placeholder="Enter your Order ID (e.g. TA12345678)"
+          placeholder="e.g. TA12345678"
           wrapperClassName="flex-1"
         />
-        <Button variant="primary" onClick={() => setSearched(true)} className="h-fit self-start">
+        <Button variant="primary" onClick={() => setSearched(true)} className="h-fit sm:self-start">
           Track
         </Button>
       </div>

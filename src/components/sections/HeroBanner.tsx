@@ -4,14 +4,14 @@ import { realPhoto } from "../../lib/images";
 
 export default function HeroBanner() {
   return (
-    <section className="relative flex h-[92svh] max-h-[880px] min-h-[520px] items-end overflow-hidden bg-ink sm:min-h-[600px]">
+    <section className="relative flex h-[92svh] max-h-[880px] min-h-[440px] items-end overflow-hidden bg-ink">
       <img
         src={realPhoto("1784439199357-8da7b7a2afbf", 1800)}
         alt="Children wearing Pip & Panda's new season collection"
         className="absolute inset-0 h-full w-full object-cover"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/25 to-ink/10" />
-      <div className="container-page relative w-full pb-14 pt-24 sm:pb-20">
+      <div className="container-page relative w-full pb-10 pt-8 sm:pb-16">
         <div className="max-w-xl">
           <span className="inline-block border-b border-terracotta/70 pb-1 text-xs font-semibold uppercase tracking-[0.3em] text-butter">
             Autumn–Winter Edit

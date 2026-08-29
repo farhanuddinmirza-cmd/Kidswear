@@ -32,12 +32,12 @@ export default function Account() {
   return (
     <div className="container-page py-8">
       <Breadcrumb items={[{ label: "My Account" }]} />
-      <div className="mt-4 flex items-center justify-between">
+      <div className="mt-4 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <h1 className="font-serif text-3xl capitalize text-ink sm:text-4xl">Hi, {user.name}</h1>
           <p className="mt-1 text-sm text-ink-soft">{user.email}</p>
         </div>
-        <Button variant="outline" size="sm" icon={<LogOut size={14} />} onClick={logout}>
+        <Button variant="outline" size="sm" icon={<LogOut size={14} />} onClick={logout} className="shrink-0 whitespace-nowrap">
           Log Out
         </Button>
       </div>
