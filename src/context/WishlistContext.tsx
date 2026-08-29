@@ -22,10 +22,10 @@ export function WishlistProvider({ children }: { children: ReactNode }) {
   const toggleWishlist = (product: Product) => {
     setProductIds((prev) => {
       if (prev.includes(product.id)) {
-        showToast(`Removed "${product.name}" from wishlist`);
+        showToast("Removed from Wishlist");
         return prev.filter((id) => id !== product.id);
       }
-      showToast(`Added "${product.name}" to wishlist`);
+      showToast("Added to Wishlist");
       return [...prev, product.id];
     });
   };

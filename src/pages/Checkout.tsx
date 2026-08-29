@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { CreditCard, Landmark, Wallet, Truck, ShoppingBag } from "lucide-react";
 import { useCart } from "../context/CartContext";
 import { useOrders } from "../context/OrdersContext";
@@ -45,6 +45,11 @@ export default function Checkout() {
     setAddress((prev) => ({ ...prev, [field]: e.target.value }));
   };
 
+  const handleNumericChange = (field: "phone" | "pincode", maxLength: number) => (e: React.ChangeEvent<HTMLInputElement>) => {
+    const digitsOnly = e.target.value.replace(/\D/g, "").slice(0, maxLength);
+    setAddress((prev) => ({ ...prev, [field]: digitsOnly }));
+  };
+
   const validate = () => {
     const next: Record<string, string> = {};
     if (!address.fullName.trim()) next.fullName = "Required";
@@ -77,12 +82,29 @@ export default function Checkout() {
             <h2 className="mb-4 font-serif text-xl text-ink">Delivery Address</h2>
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <Input label="Full Name" value={address.fullName} onChange={handleChange("fullName")} error={errors.fullName} />
-              <Input label="Phone Number" value={address.phone} onChange={handleChange("phone")} error={errors.phone} placeholder="10-digit mobile number" />
+              <Input
+                label="Phone Number"
+                type="tel"
+                inputMode="numeric"
+                maxLength={10}
+                value={address.phone}
+                onChange={handleNumericChange("phone", 10)}
+                error={errors.phone}
+                placeholder="10-digit mobile number"
+              />
               <Input label="Address Line 1" wrapperClassName="sm:col-span-2" value={address.line1} onChange={handleChange("line1")} error={errors.line1} placeholder="House no., building, street" />
               <Input label="Address Line 2 (Optional)" wrapperClassName="sm:col-span-2" value={address.line2} onChange={handleChange("line2")} placeholder="Landmark, area" />
               <Input label="City" value={address.city} onChange={handleChange("city")} error={errors.city} />
               <Input label="State" value={address.state} onChange={handleChange("state")} error={errors.state} />
-              <Input label="Pincode" value={address.pincode} onChange={handleChange("pincode")} error={errors.pincode} />
+              <Input
+                label="Pincode"
+                type="text"
+                inputMode="numeric"
+                maxLength={6}
+                value={address.pincode}
+                onChange={handleNumericChange("pincode", 6)}
+                error={errors.pincode}
+              />
             </div>
           </section>
 
@@ -138,9 +160,6 @@ export default function Checkout() {
           <Button variant="primary" fullWidth size="lg" className="mt-5" disabled={placing} onClick={handlePlaceOrder}>
             {placing ? "Placing Order..." : `Place Order · ${formatINR(total)}`}
           </Button>
-          <Link to="/bag" className="mt-3 block text-center text-xs font-medium text-ink underline underline-offset-4">
-            Back to Bag
-          </Link>
         </div>
       </div>
     </div>

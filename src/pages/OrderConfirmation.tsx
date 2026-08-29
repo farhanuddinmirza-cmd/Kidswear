@@ -54,13 +54,13 @@ export default function OrderConfirmation() {
         </div>
 
         <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
-          <Link to={`/orders/track?id=${order.id}`}>
-            <Button variant="primary" size="md">
+          <Link to={`/orders/track?id=${order.id}`} className="sm:w-48">
+            <Button variant="primary" size="md" fullWidth>
               Track Order
             </Button>
           </Link>
-          <Link to="/new-arrivals">
-            <Button variant="outline" size="md">
+          <Link to="/new-arrivals" className="sm:w-48">
+            <Button variant="outline" size="md" fullWidth>
               Continue Shopping
             </Button>
           </Link>

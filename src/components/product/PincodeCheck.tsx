@@ -23,6 +23,8 @@ export default function PincodeCheck() {
       <div className="flex gap-2">
         <input
           value={pincode}
+          inputMode="numeric"
+          maxLength={6}
           onChange={(e) => {
             setPincode(e.target.value.replace(/\D/g, "").slice(0, 6));
             setResult(null);

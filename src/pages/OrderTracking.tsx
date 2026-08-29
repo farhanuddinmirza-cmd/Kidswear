@@ -51,14 +51,16 @@ export default function OrderTracking() {
             </div>
           </div>
 
-          <div className="mt-8 flex items-center justify-between">
+          <div className="mt-8 flex items-start">
             {ORDER_STATUS_SEQUENCE.map((status, i) => {
               const currentIndex = ORDER_STATUS_SEQUENCE.indexOf(order.status);
               const done = i <= currentIndex;
+              const isFirst = i === 0;
+              const isLast = i === ORDER_STATUS_SEQUENCE.length - 1;
               return (
                 <div key={status} className="flex flex-1 flex-col items-center gap-2 text-center">
                   <div className="flex w-full items-center">
-                    {i > 0 && <div className={cn("h-0.5 flex-1", done ? "bg-terracotta" : "bg-line")} />}
+                    <div className={cn("h-0.5 flex-1", isFirst ? "bg-transparent" : done ? "bg-terracotta" : "bg-line")} />
                     <div
                       className={cn(
                         "flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs",
@@ -67,11 +69,9 @@ export default function OrderTracking() {
                     >
                       {done ? <Check size={14} /> : i + 1}
                     </div>
-                    {i < ORDER_STATUS_SEQUENCE.length - 1 && (
-                      <div className={cn("h-0.5 flex-1", i < currentIndex ? "bg-terracotta" : "bg-line")} />
-                    )}
+                    <div className={cn("h-0.5 flex-1", isLast ? "bg-transparent" : i < currentIndex ? "bg-terracotta" : "bg-line")} />
                   </div>
-                  <span className={cn("text-[11px]", done ? "font-medium text-ink" : "text-ink-soft")}>{status}</span>
+                  <span className={cn("px-1 text-[11px] leading-tight", done ? "font-medium text-ink" : "text-ink-soft")}>{status}</span>
                 </div>
               );
             })}

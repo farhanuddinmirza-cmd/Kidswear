@@ -1,8 +1,15 @@
 import { useState } from "react";
-import { ZoomIn } from "lucide-react";
+import { Heart, ZoomIn } from "lucide-react";
 import { cn } from "../../lib/utils";
 
-export default function ProductGallery({ images, name }: { images: string[]; name: string }) {
+interface ProductGalleryProps {
+  images: string[];
+  name: string;
+  isWishlisted?: boolean;
+  onToggleWishlist?: () => void;
+}
+
+export default function ProductGallery({ images, name, isWishlisted, onToggleWishlist }: ProductGalleryProps) {
   const [active, setActive] = useState(0);
   const [zoomed, setZoomed] = useState(false);
   const [zoomOrigin, setZoomOrigin] = useState("50% 50%");
@@ -43,6 +50,16 @@ export default function ProductGallery({ images, name }: { images: string[]; nam
           className="aspect-[4/5] w-full object-cover transition-transform duration-200"
           style={zoomed ? { transform: "scale(1.8)", transformOrigin: zoomOrigin } : undefined}
         />
+        {onToggleWishlist && (
+          <button
+            onClick={onToggleWishlist}
+            aria-label={isWishlisted ? "Remove from wishlist" : "Add to wishlist"}
+            aria-pressed={isWishlisted}
+            className="absolute right-3 top-3 flex h-10 w-10 items-center justify-center rounded-full bg-white/90 shadow-soft transition-transform hover:scale-105"
+          >
+            <Heart size={18} className={isWishlisted ? "fill-terracotta text-terracotta" : "text-ink"} />
+          </button>
+        )}
         <div className="absolute bottom-3 right-3 hidden items-center gap-1 rounded-full bg-white/90 px-3 py-1.5 text-xs text-ink-soft sm:flex">
           <ZoomIn size={13} /> Hover to zoom
         </div>

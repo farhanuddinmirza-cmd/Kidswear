@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import type { Product } from "../../types";
 import Modal from "../ui/Modal";
 import PriceTag from "../ui/PriceTag";
@@ -13,15 +13,28 @@ import { Heart } from "lucide-react";
 export default function QuickViewModal({ product, onClose }: { product: Product | null; onClose: () => void }) {
   const [size, setSize] = useState<string | null>(null);
   const [color, setColor] = useState<string | null>(null);
+  const [addedToBag, setAddedToBag] = useState(false);
+  const navigate = useNavigate();
   const { addItem } = useCart();
   const { isWishlisted, toggleWishlist } = useWishlist();
+
+  useEffect(() => {
+    setSize(null);
+    setColor(null);
+    setAddedToBag(false);
+  }, [product]);
 
   if (!product) return null;
 
   const handleAdd = () => {
+    if (addedToBag) {
+      onClose();
+      navigate("/bag");
+      return;
+    }
     if (!size || !color) return;
     addItem(product, size, color, 1);
-    onClose();
+    setAddedToBag(true);
   };
 
   return (
@@ -67,7 +80,7 @@ export default function QuickViewModal({ product, onClose }: { product: Product 
 
           <div className="mt-2 flex items-center gap-3">
             <Button variant="primary" size="md" fullWidth disabled={!product.inStock} onClick={handleAdd}>
-              {product.inStock ? "Add to Bag" : "Out of Stock"}
+              {!product.inStock ? "Out of Stock" : addedToBag ? "View Cart" : "Add to Bag"}
             </Button>
             <button
               onClick={() => toggleWishlist(product)}

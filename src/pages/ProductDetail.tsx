@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
-import { useParams, Link } from "react-router-dom";
-import { Heart, ShieldCheck, Sparkles, Truck, RotateCcw } from "lucide-react";
+import { useParams, Link, useNavigate } from "react-router-dom";
+import { ShieldCheck, Sparkles, Truck, RotateCcw } from "lucide-react";
 import { getProductBySlug, getRelatedProducts, getCompleteTheLook } from "../data/products";
 import Breadcrumb from "../components/ui/Breadcrumb";
 import ProductGallery from "../components/product/ProductGallery";
@@ -35,8 +35,10 @@ export default function ProductDetail() {
 function ProductDetailContent({ product }: { product: Product }) {
   const [color, setColor] = useState(product.colors[0]?.name ?? "");
   const [size, setSize] = useState<string | null>(null);
+  const [addedToBag, setAddedToBag] = useState(false);
   const [sizeGuideOpen, setSizeGuideOpen] = useState(false);
   const [quickViewProduct, setQuickViewProduct] = useState<Product | null>(null);
+  const navigate = useNavigate();
   const { addItem } = useCart();
   const { isWishlisted, toggleWishlist } = useWishlist();
   const { showToast } = useToast();
@@ -46,11 +48,26 @@ function ProductDetailContent({ product }: { product: Product }) {
   const categorySlug = categories.find((c) => c.label === product.category)?.slug ?? "";
 
   const handleAddToBag = () => {
+    if (addedToBag) {
+      navigate("/bag");
+      return;
+    }
     if (!size) {
       showToast("Please select a size");
       return;
     }
     addItem(product, size, color, 1);
+    setAddedToBag(true);
+  };
+
+  const selectSize = (s: string) => {
+    setSize(s);
+    setAddedToBag(false);
+  };
+
+  const selectColor = (c: string) => {
+    setColor(c);
+    setAddedToBag(false);
   };
 
   const handleBuyNow = () => {
@@ -67,7 +84,12 @@ function ProductDetailContent({ product }: { product: Product }) {
       <Breadcrumb items={[{ label: product.category, to: `/category/${categorySlug}` }, { label: product.name }]} />
 
       <div className="mt-5 grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-8 lg:gap-14">
-        <ProductGallery images={product.images} name={product.name} />
+        <ProductGallery
+          images={product.images}
+          name={product.name}
+          isWishlisted={isWishlisted(product.id)}
+          onToggleWishlist={() => toggleWishlist(product)}
+        />
 
         <div className="flex flex-col gap-5">
           <div>
@@ -86,7 +108,7 @@ function ProductDetailContent({ product }: { product: Product }) {
             </p>
             <div className="flex gap-2">
               {product.colors.map((c) => (
-                <ColorSwatch key={c.name} color={c} selected={color === c.name} onClick={() => setColor(c.name)} />
+                <ColorSwatch key={c.name} color={c} selected={color === c.name} onClick={() => selectColor(c.name)} />
               ))}
             </div>
           </div>
@@ -104,7 +126,7 @@ function ProductDetailContent({ product }: { product: Product }) {
               {product.sizes.map((s) => (
                 <button
                   key={s}
-                  onClick={() => setSize(s)}
+                  onClick={() => selectSize(s)}
                   className={`rounded-lg border px-3.5 py-2 text-xs font-medium transition-colors ${
                     size === s ? "border-ink bg-ink text-ivory" : "border-line text-ink-soft hover:border-ink"
                   }`}
@@ -116,24 +138,12 @@ function ProductDetailContent({ product }: { product: Product }) {
             <p className="mt-2 text-xs text-ink-soft">Suitable for: {product.ageGroups.join(", ")}</p>
           </div>
 
-          <div className="flex items-stretch gap-3">
-            <Button variant="primary" size="lg" className="flex-1" disabled={!product.inStock} onClick={handleAddToBag}>
-              {product.inStock ? "Add to Bag" : "Out of Stock"}
-            </Button>
-            <button
-              onClick={() => toggleWishlist(product)}
-              aria-label="Toggle wishlist"
-              className="flex aspect-square shrink-0 items-center justify-center rounded-full border border-line"
-            >
-              <Heart size={20} className={isWishlisted(product.id) ? "fill-terracotta text-terracotta" : "text-ink"} />
-            </button>
-          </div>
-          <div className="flex items-stretch gap-3">
-            <Button variant="outline" size="lg" className="flex-1" disabled={!product.inStock} onClick={handleBuyNow}>
-              Buy Now
-            </Button>
-            <div aria-hidden className="aspect-square shrink-0 invisible" />
-          </div>
+          <Button variant="primary" size="lg" fullWidth disabled={!product.inStock} onClick={handleAddToBag}>
+            {!product.inStock ? "Out of Stock" : addedToBag ? "View Cart" : "Add to Bag"}
+          </Button>
+          <Button variant="outline" size="lg" fullWidth disabled={!product.inStock} onClick={handleBuyNow}>
+            Buy Now
+          </Button>
 
           <div className="rounded-xl border border-line p-4">
             <PincodeCheck />
