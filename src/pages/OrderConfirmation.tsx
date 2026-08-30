@@ -33,7 +33,7 @@ export default function OrderConfirmation() {
             <span className="text-ink-soft">Estimated Delivery</span>
             <span className="font-medium text-ink">{order.eta}</span>
           </div>
-          <div className="mt-4 flex flex-col gap-3 divide-y divide-line">
+          <div className="mt-4 flex flex-col divide-y divide-line">
             {order.items.map((item, i) => {
               const product = getProductById(item.productId);
               if (!product) return null;

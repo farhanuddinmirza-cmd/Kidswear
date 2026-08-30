@@ -133,7 +133,7 @@ export default function Checkout() {
 
         <div className="h-fit rounded-2xl border border-line p-6">
           <h2 className="font-serif text-xl text-ink">Order Summary</h2>
-          <div className="mt-4 flex flex-col gap-3 divide-y divide-line">
+          <div className="mt-4 flex flex-col divide-y divide-line">
             {lines.map((l) => (
               <div key={`${l.productId}-${l.size}-${l.color}`} className="flex justify-between gap-3 pt-3 first:pt-0 text-sm">
                 <span className="text-ink-soft">

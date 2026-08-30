@@ -77,7 +77,7 @@ export default function OrderTracking() {
             })}
           </div>
 
-          <div className="mt-8 flex flex-col gap-3 divide-y divide-line border-t border-line pt-4">
+          <div className="mt-8 flex flex-col divide-y divide-line border-t border-line pt-4">
             {order.items.map((item, i) => {
               const product = getProductById(item.productId);
               if (!product) return null;

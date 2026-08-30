@@ -12,6 +12,7 @@ interface AuthContextValue {
   login: (email: string) => void;
   register: (name: string, email: string) => void;
   logout: () => void;
+  updateProfile: (fields: Partial<User>) => void;
 }
 
 const AuthContext = createContext<AuthContextValue | undefined>(undefined);
@@ -29,7 +30,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const logout = () => setUser(null);
 
-  return <AuthContext.Provider value={{ user, login, register, logout }}>{children}</AuthContext.Provider>;
+  const updateProfile = (fields: Partial<User>) => {
+    setUser((prev) => (prev ? { ...prev, ...fields } : prev));
+  };
+
+  return <AuthContext.Provider value={{ user, login, register, logout, updateProfile }}>{children}</AuthContext.Provider>;
 }
 
 export function useAuth() {
