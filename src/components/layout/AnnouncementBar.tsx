@@ -1,15 +1,9 @@
-const messages = [
-  "Free shipping on prepaid orders above ₹1,499",
-  "Easy 15-day returns & exchanges",
-  "Use code PANDA10 for 10% off your first order",
-];
-
 export default function AnnouncementBar() {
   return (
-    <div className="bg-ink text-ivory">
+    <div className="bg-sale text-ivory">
       <div className="container-page flex h-9 items-center justify-center overflow-hidden">
-        <p className="truncate text-center text-[11px] font-medium tracking-wide sm:text-xs">
-          {messages.join("  ·  ")}
+        <p className="truncate text-center text-[11px] font-semibold tracking-wide sm:text-xs">
+          Coming Soon · We are not accepting orders at the moment
         </p>
       </div>
     </div>
